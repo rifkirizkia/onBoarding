@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onboarding/controllers/foods_controller.dart';
 import 'package:onboarding/models/foods_model.dart';
 import '../repository/foods_api.dart';
 import '../routes/route_names.dart';
@@ -12,20 +13,16 @@ class FoodsPage extends StatefulWidget {
 }
 
 class _FoodsPageState extends State<FoodsPage> {
-  List<FoodsModel> foodModel = FoodsApi().getFoods();
+  List<FoodsModel> foodModel = [];
 
-  // Future<void> getFood() async {
-  //   final res = await FoodsApi().getFoods();
-  //   print("hasil res => $res");
-  //   if (res != null) {
-  //     setState(() {
-  //       foodModel = FoodsModel.fromJson();
-  //     });
-  //   }
-  // }
-
+  @override
   void initState() {
-    foodModel;
+    FoodsApi().getFoods(onDone: (data) {
+      setState(() {
+        print("Foods from api $data");
+        foodModel = data;
+      });
+    });
     super.initState();
   }
 
@@ -38,9 +35,7 @@ class _FoodsPageState extends State<FoodsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: foodModel == null
-            ? Center(child: CircularProgressIndicator())
-            : GridView.builder(
+        child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 5,
