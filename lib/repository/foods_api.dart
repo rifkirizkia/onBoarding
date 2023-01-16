@@ -20,16 +20,14 @@ class FoodsApi {
     try {
       var dio = Dio();
       final res = await dio
-          .get("https://playground-rest-api-vk3y7f3hta-et.a.run.app/foods")
+          .get<String>(
+              "https://playground-rest-api-vk3y7f3hta-et.a.run.app/foods")
           .then((value) {
         return value.data!;
       });
       print("hasil res => ${res}");
       return res;
     } on DioError catch (e) {
-      if (e.type == DioErrorType.response) {
-        print("hasil response=> $e");
-      }
       print("hasil eror=> $e");
     } catch (e) {
       print("error => $e");

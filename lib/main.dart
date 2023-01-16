@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onboarding/screens/foods_detail_page.dart';
 
 import 'routes/pages_route.dart';
 import 'screens/foods_page.dart';

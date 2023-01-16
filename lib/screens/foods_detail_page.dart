@@ -14,9 +14,10 @@ class FoodsDetail extends StatelessWidget {
         title: Text("Food Detail"),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
+        padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
                 child: SizedBox(
@@ -30,15 +31,21 @@ class FoodsDetail extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Text(
-                args[1],
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              Center(
+                child: Text(
+                  args[1],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
               ),
               SizedBox(
                 height: 12,
               ),
-              Text(args[2])
+              Container(
+                  child: Text(
+                args[2],
+                textAlign: TextAlign.left,
+              ))
             ],
           ),
         ),

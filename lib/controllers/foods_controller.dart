@@ -6,18 +6,13 @@ import '../models/foods_model.dart';
 import '../repository/foods_api.dart';
 
 class FoodsController extends GetxController {
-  final FoodsApi foodApi = FoodsApi();
-  //var foods = FoodsModel().obs;
-  getFoods({required Function(List<FoodsModel>) onDone}) async {
-    final result = await foodApi.getRequest().then((data) {
-      return jsonDecode(data);
-    }).then((value) {
-      List<FoodsModel> arrayFoods = [];
-      for (var element in value) {
-        arrayFoods.add(FoodsModel.fromJson(element));
-      }
-      return arrayFoods;
+  List<FoodsModel> foodModel = [];
+  final _foodsApi = FoodsApi();
+  void getFoodList() {
+    _foodsApi.getFoods(onDone: (data) {
+      print("Foods from api $data");
+      foodModel = data;
+      update();
     });
-    onDone.call(result);
   }
 }
