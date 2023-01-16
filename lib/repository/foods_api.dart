@@ -1,21 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:onboarding/models/foods_model.dart';
 
 class FoodsApi {
-  // Future<Dio> apiNormal() async {
-  //   BaseOptions dioOption = BaseOptions(
-  //     baseUrl: "https://playground-rest-api-vk3y7f3hta-et.a.run.app/",
-  //     responseType: ResponseType.plain,
-  //   );
-  //   Dio dio = Dio(dioOption);
-  //   dio.interceptors.add(LogInterceptor(
-  //       responseBody: true, requestBody: true, requestHeader: true));
-  //   return dio;
-  // }
-
   getRequest() async {
     try {
       var dio = Dio();
@@ -25,7 +13,6 @@ class FoodsApi {
           .then((value) {
         return value.data!;
       });
-      print("hasil res => ${res}");
       return res;
     } on DioError catch (e) {
       print("hasil eror=> $e");

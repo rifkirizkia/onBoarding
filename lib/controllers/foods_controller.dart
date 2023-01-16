@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
 
 import '../models/foods_model.dart';
@@ -10,7 +8,6 @@ class FoodsController extends GetxController {
   final _foodsApi = FoodsApi();
   void getFoodList() {
     _foodsApi.getFoods(onDone: (data) {
-      print("Foods from api $data");
       foodModel = data;
       update();
     });

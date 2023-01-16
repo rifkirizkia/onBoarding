@@ -10,12 +10,4 @@ class FoodsModel {
     image = json["image"];
     desc = json["desc"];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["name"] = name;
-    _data["image"] = image;
-    _data["desc"] = desc;
-    return _data;
-  }
 }

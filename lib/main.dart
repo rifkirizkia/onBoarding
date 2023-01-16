@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'routes/pages_route.dart';
-import 'screens/foods_page.dart';
+import 'routes/route_names.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FoodsPage(),
+      initialRoute: RoutesName.foodPage,
       getPages: PagesRoute.pages,
     );
   }

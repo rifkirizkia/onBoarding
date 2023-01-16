@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 class FoodsDetail extends StatelessWidget {
@@ -11,7 +9,7 @@ class FoodsDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Food Detail"),
+        title: const Text("Food Detail"),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
@@ -28,24 +26,23 @@ class FoodsDetail extends StatelessWidget {
                       child: Image.network(args[0], fit: BoxFit.cover)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Center(
                 child: Text(
                   args[1],
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
-              Container(
-                  child: Text(
+              Text(
                 args[2],
                 textAlign: TextAlign.left,
-              ))
+              )
             ],
           ),
         ),

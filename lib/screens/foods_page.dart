@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onboarding/models/foods_model.dart';
 import '../controllers/foods_controller.dart';
-import '../repository/foods_api.dart';
 import '../routes/route_names.dart';
 
-class FoodsPage extends StatelessWidget {
-  final foodC = Get.put(FoodsController());
+class FoodsPage extends GetView<FoodsController> {
+  final foodC = Get.find<FoodsController>();
+
+  FoodsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("List Foods"),
+        title: const Text("List Foods"),
         centerTitle: true,
       ),
       body: Padding(
@@ -31,7 +31,6 @@ class FoodsPage extends StatelessWidget {
                   itemCount: foodC.foodModel.length,
                   itemBuilder: (BuildContext context, int index) {
                     final currentFood = foodC.foodModel[index];
-                    print("hasil foods=> $currentFood");
                     return InkWell(
                       onTap: () {
                         Get.toNamed(RoutesName.foodDetail, arguments: [
@@ -52,17 +51,17 @@ class FoodsPage extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Container(
                                 width: MediaQuery.of(context).size.width,
                                 height:
                                     MediaQuery.of(context).size.width * 0.07,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(112, 0, 0, 0)),
                                 child: Center(
                                   child: Text(
                                     currentFood.name!,
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
