@@ -63,6 +63,8 @@ class FoodsPage extends StatelessWidget {
                                   child: Text(
                                     currentFood.name!,
                                     style: TextStyle(color: Colors.white),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
