@@ -4,9 +4,7 @@ import '../controllers/foods_controller.dart';
 import '../routes/route_names.dart';
 
 class FoodsPage extends GetView<FoodsController> {
-  final foodC = Get.find<FoodsController>();
-
-  FoodsPage({super.key});
+  const FoodsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +17,18 @@ class FoodsPage extends GetView<FoodsController> {
           padding: const EdgeInsets.all(8.0),
           child: GetBuilder<FoodsController>(
             initState: (_) {
-              foodC.getFoodList();
+              controller.getFoodList();
             },
-            builder: (_) {
+            builder: (controller) {
               return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 5,
                       mainAxisSpacing: 5,
                       mainAxisExtent: 150),
-                  itemCount: foodC.foodModel.length,
+                  itemCount: controller.foodModel.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final currentFood = foodC.foodModel[index];
+                    final currentFood = controller.foodModel[index];
                     return InkWell(
                       onTap: () {
                         Get.toNamed(RoutesName.foodDetail, arguments: [
