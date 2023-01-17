@@ -6,6 +6,7 @@ import '../repository/foods_api.dart';
 class FoodsController extends GetxController {
   List<FoodsModel> foodModel = [];
   final _foodsApi = FoodsApi();
+  bool? isLoading;
 
   @override
   void onInit() {
@@ -14,8 +15,11 @@ class FoodsController extends GetxController {
   }
 
   void getFoodList() {
+    isLoading = true;
+    update();
     _foodsApi.getFoods(onDone: (data) {
       foodModel = data;
+      isLoading = false;
       update();
     });
   }
