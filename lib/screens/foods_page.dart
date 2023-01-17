@@ -16,9 +16,6 @@ class FoodsPage extends GetView<FoodsController> {
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GetBuilder<FoodsController>(
-            initState: (_) {
-              controller.getFoodList();
-            },
             builder: (controller) {
               return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
